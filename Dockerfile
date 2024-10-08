@@ -1,20 +1,11 @@
-# Используем базовый образ Python
-FROM python:3.9
+FROM python:3.12-slim
+WORKDIR /app
 
-# Устанавливаем рабочую директорию
-WORKDIR /Users/tsika/PycharmProjects/DevOps/backend1
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-# Копируем requirements.txt и устанавливаем зависимости
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+COPY backend1.py .
 
-# Копируем остальные файлы
-COPY . .
-
-# Указываем команду для запуска приложения
-CMD ["python", "backend1.py"]
-
-# Указываем порт
 EXPOSE 5000
-# Указываем версию тега
-LABEL version="2.0"
+ENV FLASK_APP=backend1.py
+CMD ["flask", "run", "--host=0.0.0.0"]
