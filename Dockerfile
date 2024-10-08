@@ -16,6 +16,5 @@ CMD ["python", "app.py"]
 
 # Указываем порт
 EXPOSE 5000
-
 # Указываем версию тега
 LABEL version="2.0"
