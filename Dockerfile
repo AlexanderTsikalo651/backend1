@@ -7,4 +7,4 @@ COPY . .
 RUN git stash
 RUN git checkout v2.0
 ENV FLASK_APP=backend1
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5001"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
